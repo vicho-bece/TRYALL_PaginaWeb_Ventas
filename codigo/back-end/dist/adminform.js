@@ -5,12 +5,14 @@ document.getElementById('formulario').addEventListener('submit', function(event)
     var nombre = document.getElementById('nombre').value;
     var descripcion = document.getElementById('descripcion').value;
     var precio = parseFloat(document.getElementById('precio').value);
+    var imagen = document.getElementById('imagen').value;
 
     // Crear el objeto de datos a enviar
     var data = {
       nombre: nombre,
       descripcion: descripcion,
-      precio: precio
+      precio: precio,
+      imagen: imagen
     };
 
     // revisar esto-> Realizar la solicitud de inserción mediante AJAX o Fetch API
