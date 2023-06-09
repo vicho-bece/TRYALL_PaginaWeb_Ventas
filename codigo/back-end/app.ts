@@ -31,6 +31,13 @@ const configuracion={
     port: 3000,
 }
 
+//Mostrar todos los productos
+app.post("",jsonParser,(req:any, res:any) => {
+    connection.query("select * from productos", function(error:any, results:any, fields:any){
+        res.send(JSON.stringify({"result": results}));
+    });
+});
+
 app.listen(configuracion, () => {
     console.log(`Conectando al servidor http://localhost:${configuracion.port}`)
 })
