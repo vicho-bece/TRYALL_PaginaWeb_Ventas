@@ -16,7 +16,7 @@ document.getElementById('formulario').addEventListener('submit', function(event)
     };
 
     // revisar esto-> Realizar la solicitud de inserción mediante AJAX o Fetch API
-    fetch('https://example.com/agregar_producto', { //Reemplazar con el link correspondiente
+    fetch('http://127.0.0.1:3000', { //Reemplazar con el link correspondiente
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
