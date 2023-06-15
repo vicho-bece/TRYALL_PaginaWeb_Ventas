@@ -32,11 +32,18 @@ const configuracion={
 }
 
 //Mostrar todos los productos
-app.post("",jsonParser,(req:any, res:any) => {
+app.post("/todos",jsonParser,(req:any, res:any) => {
     connection.query("select * from productos", function(error:any, results:any, fields:any){
         res.send(JSON.stringify({"result": results}));
     });
 });
+
+app.post("/buscador",jsonParser,(req:any, res:any) => {
+    let Codigo = req.body.Codigo;
+    connection.query("select * from productos where Codigo=?",[Codigo],function(error:any, results:any, fields:any){
+        res.send(JSON.stringify({"mensaje":true, "result":results}))
+    })
+})
 
 app.listen(configuracion, () => {
     console.log(`Conectando al servidor http://localhost:${configuracion.port}`)

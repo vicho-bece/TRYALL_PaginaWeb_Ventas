@@ -48,10 +48,27 @@
 
     <!--Inicio Body-->
 
-    
+        <div class="container">
+            <h1 class="text-center mt-5">¿Estas buscando algun producto en especifico?</h1>
+            <div class="row justify-content-center">
+                <div class="col-md-6 mt-4">
+                    <form id="busca">
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="Codigo" name="Codigo" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">Buscar</button>
+                    </form>
+                </div>
+            </div>
+            <div id="resultados">
+
+            </div>
+        </div>
 
 
-        <script src="" async defer></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js" defer></script>
+        <script src="buscar.js" defer></script>
 </body>
 
 </html>

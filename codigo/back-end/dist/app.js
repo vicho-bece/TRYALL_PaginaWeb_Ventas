@@ -27,9 +27,15 @@ const configuracion = {
     port: 3000,
 };
 //Mostrar todos los productos
-app.post("", jsonParser, (req, res) => {
+app.post("/todos", jsonParser, (req, res) => {
     connection.query("select * from productos", function (error, results, fields) {
         res.send(JSON.stringify({ "result": results }));
+    });
+});
+app.post("/buscador", jsonParser, (req, res) => {
+    let Codigo = req.body.Codigo;
+    connection.query("select * from productos where Codigo=?", [Codigo], function (error, results, fields) {
+        res.send(JSON.stringify({ "mensaje": true, "result": results }));
     });
 });
 app.listen(configuracion, () => {
