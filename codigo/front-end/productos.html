@@ -13,9 +13,14 @@
         <!--Js bootstrap bundle-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
   
+        <!--iconos-->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+        
+        <!--css-->
+        <link rel="stylesheet" href="carrito.css">
     </head>
     <body>
-        
+        <div class="container">
             <!--NavBar-->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="/codigo/front-end/index.html">TryAll</a>
@@ -35,25 +40,66 @@
                     <a class="nav-link" href="/codigo/front-end/buscador.html">Buscar Producto</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/codigo/front-end/solicitar.html">Solicitar Producto</a>
+                    <a class="nav-link" href="#">Solicitar Producto</a>
                 </li>
             </ul>
         </div>
     </nav>
     <!--Fin NavBar-->
-    <div class="container">
+
+        <div class="top-carrito">
+            <div class="container-icon">
+                <div class="container-cart-icon">
+                    <span class="material-symbols-outlined"> shopping_cart </span>
+                
+                    <div class="count-products">
+                        <span id="contador-productos">0</span>
+                    </div>
+                </div>
+                    
+
+                    <div class="container-cart-products hiddent-cart">
+                        <div class="row-product">
+
+                            <div class="cart-product">
+                            <div class="info-cart-product">
+                                <span class="cantidad-producto-carrito"></span>
+                                <p class="titulo-producto-carrito"></p>
+                            <span class="precio-producto-carrito"></span>
+                        </div>
+                            <span class="material-symbols-outlined" >
+                                close
+                            </span>
+                            
+                        </div>
+                        
+                    </div>
+                    <div class="cart-total">
+                        <h3>total:</h3>
+                        <span class="total-pagar"></span>
+                    </div>
+                </div>
+
+        </div>
+    
+    
+
+    </div>
+    
+        
             <div class="card-deck">
 
               <div id="productos">  
-              </div>
+              </div>        
 
               <div class="card">
                 <img src="producto1.jpg" class="card-img-top" alt="FotoAqui"> <!--Cambiar .jpg-->
                 <div class="card-body">
                   <h5 class="card-title">Producto 1</h5>
                   <p class="card-text">Descripción del producto 1.</p>
-                  <p class="card-text">Precio: </p>
-                  <a href="#" class="btn btn-primary">Agregar al carrito</a>
+                  <p class="Precio">$100</p>
+                  <a href="#" class="btn btn-primary"> <button class="btn-add"> Agregar al carrito</button></a>
+                  
                 </div>
               </div>
         
@@ -63,5 +109,6 @@
           <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js" crossorigin="anonymous"></script>
           <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js" defer></script>
           <script src="mostrar.js" async defer></script>
+          <script src="carrito.js"></script>
     </body>
 </html>
