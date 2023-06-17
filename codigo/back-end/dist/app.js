@@ -32,10 +32,22 @@ app.post("/todos", jsonParser, (req, res) => {
         res.send(JSON.stringify({ "result": results }));
     });
 });
+//regexp concat('^',?)
 app.post("/buscador", jsonParser, (req, res) => {
     let Codigo = req.body.Codigo;
-    connection.query("select * from productos where Codigo=?", [Codigo], function (error, results, fields) {
+    connection.query("select * from productos where Codigo regexp concat('^',?)", [Codigo], function (error, results, fields) {
         res.send(JSON.stringify({ "mensaje": true, "result": results }));
+    });
+});
+app.put("/subir", jsonParser, (req, res) => {
+    let Codigo = req.body.Codigo;
+    let nombre = req.body.nombre;
+    let stock = req.body.stock;
+    let fabricante = req.body.fabricante;
+    connection.query("insert into productos (Codigo,nombreProducto,fabricante,stock) VALUES (?,?,?,?)", [Codigo, nombre, fabricante, stock], function (error, results, fields) {
+        if (error)
+            throw error;
+        res.send(JSON.stringify({ "mensaje": true, "results": results }));
     });
 });
 app.listen(configuracion, () => {

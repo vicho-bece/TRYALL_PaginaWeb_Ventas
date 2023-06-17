@@ -18,7 +18,7 @@
         crossorigin="anonymous"></script>
     
     <!--Js-->
-    <script src="/codigo/back-end/dist/adminform.js"></script>
+    <!--<script src="/codigo/back-end/dist/adminform.js"></script>-->
 </head>
 
 <body>
@@ -56,20 +56,26 @@
             <input type="text" class="form-control" id="nombre" name="nombre" required>
         </div>
         <div class="form-group">
-            <label for="descripcion">Descripción:</label>
-            <textarea class="form-control" id="descripcion" name="descripcion" required></textarea>
+            <label for="fabricante">Fabricante:</label>
+            <input type="text" class="form-control" id="fabricante" name="fabricante" required></input>
         </div>
         <div class="form-group">
-            <label for="precio">Precio:</label>
-            <input type="number" class="form-control" id="precio" name="precio" required>
+            <label for="stock">Stock:</label>
+            <input type="number" class="form-control" id="stock" name="stock" required>
         </div>
         <div class="form-group">
+            <label for="Codigo">Codigo:</label>
+            <input type="text" class="form-control" id="Codigo" name="Codigo" required>
+        </div>
+        <!--<div class="form-group">
             <label for="imagen">Imagen:</label>
             <input type="file" class="form-control" id="imagen" name="imagen" required>
-        </div>
+        </div>-->
         <button type="submit" class="btn btn-primary">Agregar Producto</button>
     </form>
-    <script src="" async defer></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js" defer></script>
+    <script src="subir.js" async defer></script>
 </body>
 
 </html>
