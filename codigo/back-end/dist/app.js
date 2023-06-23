@@ -35,7 +35,7 @@ app.post("/todos", jsonParser, (req, res) => {
 //regexp concat('^',?)
 app.post("/buscador", jsonParser, (req, res) => {
     let Codigo = req.body.Codigo;
-    connection.query("select * from productos where Codigo regexp concat('^',?)", [Codigo], function (error, results, fields) {
+    connection.query("select * from productos where Codigo regexp concat('^',?) or nombreProducto like '%" + Codigo + "%'", [Codigo], function (error, results, fields) {
         res.send(JSON.stringify({ "mensaje": true, "result": results }));
     });
 });
