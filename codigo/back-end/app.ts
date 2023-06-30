@@ -53,8 +53,12 @@ app.put("/subir",jsonParser,(req:any, res:any) => {
     let Precio = req.body.Precio;
     connection.query("insert into productos (Codigo,NombreProducto,Fabricante,Stock,Precio) VALUES (?,?,?,?,?)", [Codigo, nombre, fabricante, stock, Precio],
     function(error:any, results:any, fields:any) {
-        if (error) throw error;
-        res.send(JSON.stringify({"mensaje":true,"results":results}));
+        if (error){
+            res.send(JSON.stringify({"mensaje":false}));
+        }else{
+            res.send(JSON.stringify({"mensaje":true,"results":results}));
+        }
+        
     })
 })
 app.listen(configuracion, () => {

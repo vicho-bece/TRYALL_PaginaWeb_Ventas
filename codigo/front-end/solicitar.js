@@ -15,7 +15,7 @@ document.getElementById("solicitudForm").addEventListener("submit", function(eve
     console.log("Nombre del Producto:", nombreProducto);
     console.log("Cantidad Solicitada:", cantidad);
     
-  
+    alert("La solicitud de tu producto fue llevado a cabo de forma exitosa");
     // Falta agregar info para enviar al servidor (V2)
   
     // Limpiar el formulario
