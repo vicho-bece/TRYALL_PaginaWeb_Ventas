@@ -12,6 +12,9 @@ $(document).ready(function(){
             },
             Codigo:{
                 required:true
+            },
+            Precio:{
+                required: true
             }
         },
         submitHandler: function(form){
@@ -27,9 +30,11 @@ function subirProductos(){
             nombre=$("#nombre").val();
             fabricante=$("#fabricante").val();
             stock=$("#stock").val();
+            Precio=$("#Precio").val();
+            
 
             $.ajax({
-            data: JSON.stringify({"Codigo":Codigo,"nombre":nombre,"fabricante":fabricante,"stock":stock}),
+            data: JSON.stringify({"Codigo":Codigo,"nombre":nombre,"fabricante":fabricante,"stock":stock, "Precio":Precio}),
             contentType: "application/json",
             type: "PUT",
             dataType: "json",

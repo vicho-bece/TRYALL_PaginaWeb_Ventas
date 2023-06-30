@@ -39,9 +39,9 @@ app.post("/todos",jsonParser,(req:any, res:any) => {
 });
 //regexp concat('^',?)
 app.post("/buscador",jsonParser,(req:any, res:any) => {
-    let Codigo = req.body.Codigo;
-    connection.query("select * from productos where Codigo regexp concat('^',?) or nombreProducto like '%" + Codigo + "%'",
-    [Codigo],function(error:any, results:any, fields:any){
+    let Buscar = req.body.Buscar;
+    connection.query("select * from productos where Codigo regexp concat('^',?) or nombreProducto like '%" + Buscar + "%'",
+    [Buscar],function(error:any, results:any, fields:any){
         res.send(JSON.stringify({"mensaje":true, "result":results}))
     })
 })
@@ -50,7 +50,8 @@ app.put("/subir",jsonParser,(req:any, res:any) => {
     let nombre = req.body.nombre;
     let stock = req.body.stock;
     let fabricante = req.body.fabricante;
-    connection.query("insert into productos (Codigo,nombreProducto,fabricante,stock) VALUES (?,?,?,?)", [Codigo, nombre, fabricante, stock],
+    let Precio = req.body.Precio;
+    connection.query("insert into productos (Codigo,NombreProducto,Fabricante,Stock,Precio) VALUES (?,?,?,?,?)", [Codigo, nombre, fabricante, stock, Precio],
     function(error:any, results:any, fields:any) {
         if (error) throw error;
         res.send(JSON.stringify({"mensaje":true,"results":results}));

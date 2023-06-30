@@ -1,19 +1,19 @@
 $(document).ready(function(){
     $("#busca").validate({
         rules:{
-            Codigo:{
+            Buscar:{
                 required: true
             }
         },
         messages:{
-            Codigo:{
+            Buscar:{
                 required: "Favor de ingresar un codigo"
             }
         },
         submitHandler: function(form){
             
             $.ajax({
-                data: JSON.stringify({"Codigo":$("#Codigo").val()}),
+                data: JSON.stringify({"Buscar":$("#Buscar").val()}),
                 contentType: "application/json",
                 type: "POST",
                 dataType: "json",
@@ -24,15 +24,15 @@ $(document).ready(function(){
                 {
                     $("#resultados").empty();
                     for(let i = 0; data.result[i]!=null; i++){
-                         carta = `<br><div class="card"><div class="card-body"><h5 class="card-title">`+data.result[i].nombreProducto+`</h5>
-                        <p class="card-text">Codigo del Producto: `+data.result[i].Codigo+`</p><p class="card-text">Cantidad de stock: `+data.result[i].stock+`</p>
-                        <p class="card-text">Fabricante: `+data.result[i].fabricante+`</p><a href="#" class="btn btn-primary">Agregar al carrito</a>`
+                         carta = `<br><div class="card"><div class="card-body"><h5 class="card-title">`+data.result[i].NombreProducto+`</h5>
+                         <p class="card-text">Codigo del Producto: `+data.result[i].Codigo+`</p><p class="card-text">Cantidad de stock: `+data.result[i].Stock+`</p>
+                         <p class="card-text">Fabricante: `+data.result[i].Fabricante+`</p><p class="Precio">$`+data.result[i].Precio+`</p><a href="#" class="btn btn-primary btn-add">Agregar al carrito</a>`
                         $("#resultados").append(carta);
                     }
                     
                 }
                 else{
-                    $("#resultados").text("No se encontraron reusltados");
+                    $("#resultados").text("No se encontraron resultados con la palabra ingresada: " + $("#Buscar").val());
                 }
             })
             .fail(function(textStatus){
